@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="900" prefWidth="1600" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FXMLDocumentController">
+    <children>
+
+        <Label layoutX="1342.0" layoutY="650.0" text="Выбрать файл(.wav)--->" />
+        <Button fx:id="button_select" layoutX="1505.0" layoutY="650" onAction="#open" text="    " />
+        <Label layoutX="1342.0" layoutY="700.0" text="Воспроизвести--->" />
+        <Button fx:id="button_play" layoutX="1505.0" layoutY="700.0" onAction="#play" text="   " />
+        <Label layoutX="1342.0" layoutY="750.0" text="Приостановить--->" />
+        <Button fx:id="button_pause" layoutX="1505.0" layoutY="750.0" onAction="#pause" text="   " />
+        <Label layoutX="1342.0" layoutY="800.0" text="Сбросить--->" />
+        <Button fx:id="button_stop" layoutX="1505.0" layoutY="800.0" onAction="#stop" text="     " />
+        <Label layoutX="1342.0" layoutY="850.0" text="Закрыть программу--->" />
+        <Button fx:id="buttonClose" layoutX="1505.0" layoutY="850.0" maxWidth="110" onAction="#clickClose" text="    ">
+        </Button>
+        <Label layoutX="952.0" layoutY="700.0" text="Регулировка громкости"/>
+        <Slider fx:id="soundSlider" layoutX="1005.0" layoutY="720.0" max="0.5" min="0" orientation="VERTICAL" rotate="0" value="0.25">
+        </Slider>
+
+        <Label layoutX="1100.0" layoutY="800.0" text="Выберите эффект(ы)" />
+        <CheckBox layoutX="1100.0" layoutY="820.0" onAction="#EchoBox" text="Эхо" />
+        <CheckBox layoutX="1100.0" layoutY="840.0" onAction="#EnvelopeBox" text="Энвелоп" />
+
+        <HBox layoutX="114.0" layoutY="670.0" prefHeight="20" prefWidth="802.0">
+            <children>
+                <Label prefWidth="105.0" text="0-100 Гц" />
+                <Label prefWidth="105.0" text="100-315 Гц" />
+                <Label prefWidth="105.0" text="315-651 Гц" />
+                <Label prefWidth="105.0" text="651-1323 Гц" />
+                <Label prefWidth="105.0" text="1323-2667 Гц" />
+                <Label prefWidth="105.0" text="2667-5355 Гц" />
+                <Label prefWidth="105.0" text="5355-10731 кГц" />
+                <Label prefWidth="105.0" text="10731-22000 кГц" />
+
+            </children>
+        </HBox>
+        <HBox layoutX="84.0" layoutY="700.0" prefHeight="166.0" prefWidth="829.0">
+            <children>
+                <Slider fx:id="Slider0" max="1" min="0.001" orientation="VERTICAL" prefWidth="100" value="1" />
+                <Slider fx:id="Slider1" max="1" min="0.001" orientation="VERTICAL" prefWidth="100" value="1" />
+                <Slider fx:id="Slider2" max="1" min="0.001" orientation="VERTICAL" prefWidth="100" value="1" />
+                <Slider fx:id="Slider3" max="1" min="0.001" orientation="VERTICAL" prefWidth="100" value="1" />
+                <Slider fx:id="Slider4" max="1" min="0.001" orientation="VERTICAL" prefWidth="100" value="1" />
+                <Slider fx:id="Slider5" max="1" min="0.001" orientation="VERTICAL" prefWidth="100" value="1" />
+                <Slider fx:id="Slider6" max="1" min="0.001" orientation="VERTICAL" prefWidth="100" value="1" />
+                <Slider fx:id="Slider7" max="1" min="0.001" orientation="VERTICAL" prefWidth="100" value="1" />
+
+            </children>
+        </HBox>
+        <CheckBox fx:id="buttonPlot" layoutX="1100.0" layoutY="750.0" maxWidth="110" onAction="#clickPlot" text="Графики">
+        </CheckBox>
+        <LineChart fx:id="chart1" layoutX="10.0" layoutY="12.0" legendVisible="false" title="До обработки" titleSide="TOP">
+            <xAxis><NumberAxis label="Частоты" lowerBound="0" tickUnit="1" upperBound="3" fx:id="xAxis1" /></xAxis>
+            <yAxis><NumberAxis fx:id="yAxis1" label="Амплитуда" lowerBound="0" tickUnit="1" upperBound="3" /></yAxis>
+
+        </LineChart>
+        <LineChart fx:id="chart2" layoutX="678.0" layoutY="12.0" legendVisible="false" title="После обработки" titleSide="TOP">
+            <xAxis><NumberAxis label="Частоты" lowerBound="0" tickUnit="1" upperBound="3" fx:id="xAxis2" /></xAxis>
+            <yAxis><NumberAxis fx:id="yAxis2" label="Амплитуда" lowerBound="0" tickUnit="1" upperBound="3" /></yAxis>
+        </LineChart>
+
+    </children>
+</AnchorPane>
+
